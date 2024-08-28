@@ -1,0 +1,15 @@
+type Result = 
+ variant {
+   err: text;
+   ok;
+ };
+type LeaderboardEntry = 
+ record {
+   id: text;
+   time: nat;
+ };
+service : {
+  endRace: (text, nat) -> (Result);
+  getLeaderboard: () -> (vec LeaderboardEntry) query;
+  startRace: () -> (text);
+}
